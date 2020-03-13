@@ -18,7 +18,7 @@ function pack(inDigits, inBases, outBases) {
     for (inPos = digitsLeft - 1; inPos >= 0; inPos--) {
       inBase = inBases[inPos] || inBase;
       if (inBase > maxBase) {
-        inBase = maxBase; // handle infinite bases
+        inBase = maxBase;
       }      
       remainder = digits[inPos] + remainder * inBase;
       digits[inPos] = Math.floor(remainder / outBase);
