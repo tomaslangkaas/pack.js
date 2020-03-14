@@ -1,12 +1,12 @@
-# pack.js
+# repack.js
 Conversion of arbitrarily large mixed base integers in JavaScript
 
 ```javascript
-pack(mixedBaseValues, inputBases, outputBases)
+repack(mixedBaseValues, inputBases, outputBases)
 ```
 
 * Accepts large mixed base integers represented as arrays, least significant value first
-* The convenience wrapper `pack_msd()` accepts input arrays with most significant value first
+* The convenience wrapper `repack_msd()` accepts input arrays with most significant value first
 * Accepts bases in the range 1&ndash;94906265
 * Converts directly from one mixed base to another
 
@@ -19,14 +19,14 @@ Converting 372 hours, 34 minutes, and 15 seconds to days and seconds:
 This gives 15 days and 45255 seconds, or about 15.5 days.
 
 ```javascript
-pack(
+repack(
   [15, 34, 372], 
   [60, 60, Infinity], 
   [86400, Infinity]
 );
 > [45255, 15]
 
-pack_msd(
+repack_msd(
   [372, 34, 15], 
   [Infinity, 60, 60], 
   [Infinity, 86400]
@@ -40,7 +40,7 @@ Converting a large integer from one base to another (base 2 to base 9):
 > 11101110010000111110010011100000011011011011011100011110111100010101110<sub>2</sub> = 22067434162858645566804<sub>9</sub>
 
 ```javascript
-pack(
+repack(
   "11101110010000111110010011100000011011011011011100011110111100010101110"
     .split("")
     .reverse(),
@@ -50,7 +50,7 @@ pack(
 > [4, 0, 8, 6, 6, 5, 5, 4, 6, 8, 5, 8,
    2, 6, 1, 4, 3, 4, 7, 6, 0, 2, 2]
    
-pack_msd(
+repack_msd(
   "11101110010000111110010011100000011011011011011100011110111100010101110".split(""),
   [2],
   [9]
