@@ -33,9 +33,9 @@ repack_msd(
 );
 > [15, 45255]
 ```
-## Example 2: Normal base conversion
+## Example 2: Single base conversion
 
-Converting a large integer from one base to another (base 2 to base 9):
+Converting an integer from one base to another (base 2 to base 9):
 
 > 11101110010000111110010011100000011011011011011100011110111100010101110<sub>2</sub> = 22067434162858645566804<sub>9</sub>
 
@@ -59,12 +59,14 @@ repack_msd(
    5, 8, 6, 4, 5, 5, 6, 6, 8, 0, 4]
 ```
 
-## Example 3: Storing configuration data
+## Example 3: Packing data
 
-A configuration has five settings. Setting *a* has five levels, setting *b* has ten levels, setting *c* and *d* have eleven levels, and setting *e* has nine levels. We want to store the settings efficiently as an array of bytes. We can treat the settings as a mixed base integer, *e*<sub>9</sub>*d*<sub>11</sub>*c*<sub>11</sub>*b*<sub>10</sub>*a*<sub>5</sub>, then convert it to base 256.
+Imagine a configuration with five parameters. Parameter *a* has five levels, parameter *b* has ten levels, parameter *c* and *d* have eleven levels, and parameter *e* has nine levels. We want to store the currently set configuration efficiently as an array of bytes.
+
+If we treat the parameters as a mixed base integer, *e*<sub>9</sub>*d*<sub>11</sub>*c*<sub>11</sub>*b*<sub>10</sub>*a*<sub>5</sub>, we can `repack()` the current configuration to base 256 and restore it later.
 
 ```javascript
-// settings:
+// parameters to pack:
 //   a = 4, b = 9, c = 3, d = 10, e = 1
 
 repack(
@@ -74,7 +76,7 @@ repack(
 );
 > [229, 45] // [0xe5, 0x2d]
 
-// unpack settings from bytes
+// restore parameters
 
 repack(
   [0xe5, 0x2d],
