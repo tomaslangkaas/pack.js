@@ -7,7 +7,7 @@ repack(mixedBaseValues, inputBases, outputBases)
 
 * Accepts large mixed base integers represented as arrays, least significant value first
 * The convenience wrapper `repack_msd()` accepts input arrays with most significant value first
-* Accepts bases in the range 1&ndash;94906265
+* Accepts bases in the range 2&ndash;94906265
 * Converts directly from one mixed base to another
 
 ## Example 1: Mixed base conversion
