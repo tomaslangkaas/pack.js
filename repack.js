@@ -29,11 +29,14 @@ function repack(inDigits, inBases, outBases) {
     }
     result[outPos++] = remainder;
   }
+  while (result.length < outBases.length) {
+    result.push(0);
+  }
   return result;
 }
 
 function repack_msd(a, b, c) {
-  return repack(
+  return pack(
     a.slice().reverse(),
     b.slice().reverse(),
     c.slice().reverse()
