@@ -13,14 +13,14 @@ function pack(inDigits, inBases, outBases) {
     outBase = outBases[outPos] || outBase;
     if (outBase > maxBase) {
       outBase = maxBase;
-    } 
+    }
     inBase = inBases[inBases.length - 1];
     for (inPos = digitsLeft - 1; inPos >= 0; inPos--) {
       inBase = inBases[inPos] || inBase;
       if (inBase > maxBase) {
         inBase = maxBase;
-      }      
-      remainder = digits[inPos] + remainder * inBase;
+      }
+      remainder = +digits[inPos] + remainder * inBase;
       digits[inPos] = Math.floor(remainder / outBase);
       remainder -= digits[inPos] * outBase;
       if (digitsLeft == inPos + 1 && digits[inPos] == 0) {
@@ -30,4 +30,12 @@ function pack(inDigits, inBases, outBases) {
     result[outPos++] = remainder;
   }
   return result;
+}
+
+function pack_msd(a, b, c) {
+  return pack(
+    a.slice().reverse(),
+    b.slice().reverse(),
+    c.slice().reverse()
+  ).reverse();
 }
