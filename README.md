@@ -61,5 +61,25 @@ repack_msd(
 
 ## Example 3: Storing configuration data
 
-A configuration has five settings. Setting *a* has five levels, setting *b* has ten levels, setting *c* and *d* have eleven levels, and setting *e* has nine levels. We want to store the settings efficiently as an array of bytes. We can treat the settings as a mixed base integer, *a*<sub>5</sub>*b*<sub>10</sub>*c*<sub>11</sub>*d*<sub>11</sub>*e*<sub>9</sub>, then convert it to base 256.
+A configuration has five settings. Setting *a* has five levels, setting *b* has ten levels, setting *c* and *d* have eleven levels, and setting *e* has nine levels. We want to store the settings efficiently as an array of bytes. We can treat the settings as a mixed base integer, *e*<sub>9</sub>*d*<sub>11</sub>*c*<sub>11</sub>*b*<sub>10</sub>*a*<sub>5</sub>, then convert it to base 256.
+
+```javascript
+// setting a = 4, b = 9, c = 3, d = 10, e = 1
+repack(
+  [4,  9,  3, 10, 1],
+  [5, 10, 11, 11, 9],
+  [256]
+);
+> [229, 45] // [0xe5, 0x2d]
+
+// unpack settings
+
+repack(
+  [0xe5, 0x2d],
+  [256],
+  [5, 10, 11, 11, 9]
+);
+> [4, 9, 3, 10, 1]
+
+```
 
