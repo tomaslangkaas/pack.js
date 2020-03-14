@@ -1,4 +1,4 @@
-function pack(inDigits, inBases, outBases) {
+function repack(inDigits, inBases, outBases) {
   var digits = inDigits.slice(0),
     digitsLeft = digits.length,
     result = [],
@@ -32,8 +32,8 @@ function pack(inDigits, inBases, outBases) {
   return result;
 }
 
-function pack_msd(a, b, c) {
-  return pack(
+function repack_msd(a, b, c) {
+  return repack(
     a.slice().reverse(),
     b.slice().reverse(),
     c.slice().reverse()
