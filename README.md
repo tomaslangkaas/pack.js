@@ -5,8 +5,8 @@ Conversion of arbitrarily large mixed base integers in JavaScript
 pack(mixedBaseValues, inputBases, outputBases)
 ```
 
-* Accepts large mixed base integers represented as arrays with least significant value first
-* The function `pack_msd()` is a convenience wrapper that accepts input arrays with most significant value first
+* Accepts large mixed base integers represented as arrays, least significant value first
+* The convenience wrapper `pack_msd()` accepts input arrays with most significant value first
 * Accepts bases in the range 1&ndash;94906265
 * Converts directly from one mixed base to another
 
