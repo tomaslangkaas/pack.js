@@ -10,16 +10,16 @@ function repack(inDigits, inBases, outBases) {
     maxBase = 94906265;
   while (digitsLeft) {
     remainder = 0;
-    outBase = outBases[outPos] || outBase;
-    if (outBase > maxBase) {
-      outBase = maxBase;
-    }
     inBase = inBases[inBases.length - 1];
+    outBase = Math.min(
+      Math.max(outBases[outPos] || outBase, 2), 
+      maxBase
+    );
     for (inPos = digitsLeft - 1; inPos >= 0; inPos--) {
-      inBase = inBases[inPos] || inBase;
-      if (inBase > maxBase) {
-        inBase = maxBase;
-      }
+      inBase = Math.min(
+        Math.max(inBases[inPos] || inBase, 2), 
+        maxBase
+      );
       remainder = +digits[inPos] + remainder * inBase;
       digits[inPos] = Math.floor(remainder / outBase);
       remainder -= digits[inPos] * outBase;
