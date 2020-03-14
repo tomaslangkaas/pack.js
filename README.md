@@ -66,7 +66,7 @@ Imagine a configuration with five parameters. Parameter *a* has five levels, par
 If we treat the parameters as a mixed base integer, *e*<sub>9</sub>*d*<sub>11</sub>*c*<sub>11</sub>*b*<sub>10</sub>*a*<sub>5</sub>, we can `repack()` the current configuration to base 256 and restore it later.
 
 ```javascript
-// parameters to pack:
+// parameter values to pack:
 //   a = 4, b = 9, c = 3, d = 10, e = 1
 
 repack(
@@ -76,7 +76,7 @@ repack(
 );
 > [229, 45] // [0xe5, 0x2d]
 
-// restore parameters
+// restore parameter values
 
 repack(
   [0xe5, 0x2d],
