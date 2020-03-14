@@ -10,7 +10,7 @@ repack(mixedBaseValues, inputBases, outputBases)
 * Accepts bases in the range 1&ndash;94906265
 * Converts directly from one mixed base to another
 
-## Example 1
+## Example 1: Mixed base conversion
 
 Converting 372 hours, 34 minutes, and 15 seconds to days and seconds:
 
@@ -33,7 +33,7 @@ repack_msd(
 );
 > [15, 45255]
 ```
-## Example 2
+## Example 2: Normal base conversion
 
 Converting a large integer from one base to another (base 2 to base 9):
 
@@ -58,3 +58,8 @@ repack_msd(
 > [2, 2, 0, 6, 7, 4, 3, 4, 1, 6, 2, 8, 
    5, 8, 6, 4, 5, 5, 6, 6, 8, 0, 4]
 ```
+
+## Example 3: Storing configuration data
+
+A configuration has four settings. Setting *a* has three levels, setting *b* and *c* have eleven levels, and setting *d* has two levels. We want to store the settings efficiently as an array of bytes. We can treat the settings as a mixed base integer, *d*<sub>3</sub>*c*<sub>11</sub>*b*<sub>11</sub>*a*<sub>3</sub>, then convert it to base 256.
+
