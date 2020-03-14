@@ -61,5 +61,5 @@ repack_msd(
 
 ## Example 3: Storing configuration data
 
-A configuration has four settings. Setting *a* has three levels, setting *b* and *c* have eleven levels, and setting *d* has two levels. We want to store the settings efficiently as an array of bytes. We can treat the settings as a mixed base integer, *d*<sub>3</sub>*c*<sub>11</sub>*b*<sub>11</sub>*a*<sub>3</sub>, then convert it to base 256.
+A configuration has five settings. Setting *a* has five levels, setting *b* has ten levels, setting *c* and *d* have eleven levels, and setting *e* has nine levels. We want to store the settings efficiently as an array of bytes. We can treat the settings as a mixed base integer, *a*<sub>5</sub>*b*<sub>10</sub>*c*<sub>11</sub>*d*<sub>11</sub>*e*<sub>9</sub>, then convert it to base 256.
 
